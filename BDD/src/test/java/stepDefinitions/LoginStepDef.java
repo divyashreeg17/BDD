@@ -47,6 +47,29 @@ public class LoginStepDef {
 		Assert.assertEquals("", "");
 		driver.close();
 	}
+	
+	@When("^User clicks on forgot password link$")
+	public void user_clicks_on_forgot_password_link() throws Throwable {
+	    driver.findElement(By.id("toPasswordRecoveryPageLink")).click();
+	}
+
+	@Then("^Forgot your password component should be displayed$")
+	public void forgot_your_password_component_should_be_displayed() throws Throwable {
+		Assert.assertEquals("", "");
+		driver.close();
+	}
+	
+	@When("^the user enters the valid username and password$")
+	public void the_user_enters_the_valid_username_and_password() throws Throwable {
+		driver.findElement(By.name("username")).sendKeys("admin");
+		driver.findElement(By.name("pwd")).sendKeys("manager");
+	}
+	
+	@When("^the user enters the credentials as \"([^\"]*)\" and \"([^\"]*)\"$")
+	public void the_user_enters_the_credentials_as_and(String arg1, String arg2) throws Throwable {
+		driver.findElement(By.name("username")).sendKeys(arg1);
+		driver.findElement(By.name("pwd")).sendKeys(arg2);
+	}
 
 
 }
